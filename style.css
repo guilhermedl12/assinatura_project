@@ -6,8 +6,6 @@ html {
   font-variation-settings: "GRAD" 0;
 }
 
-
-
 body {
     padding-top: 45px;
     font-size: 16px;
@@ -16,12 +14,14 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+    
+    /* Ajustes no Background */
     background-image: url(img/harvesting-combine-field.jpg);
     background-repeat: no-repeat;
-    background-size: 100% 100%;
-    background-attachment: fixed;
+    background-size: cover; /* Mantém a proporção e cobre a tela */
+    background-position: center center; /* Centraliza a imagem */
+    background-attachment: scroll; /* Mais estável para mobile que o fixed */
 }
-
 
 #box {
     color: #222222;
@@ -29,7 +29,7 @@ body {
     max-width: 580px;
     background: #ffffff;
     padding: 20px 25px;
-    margin-top: 30px;
+    margin-top: -20px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
