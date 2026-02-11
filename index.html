@@ -1,20 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Assinatura</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-        rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&family=Lexend+Deca:wght@100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:wght@400;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -24,20 +17,17 @@
             <p class="nome_marca">GRUPO <strong>FARIAS</strong></p>
         </div>
 
-        <!-- <h3>Gerador de Assinatura de E-mail | Grupo Farias</h3>-->
-        <h3>
-            GERADOR DE ASSINATURA DE E-MAIL
-        </h3>
+        <h3>GERADOR DE ASSINATURA DE E-MAIL</h3>
 
         <form>
-            <div>
-                <input type="text" id="nome" placeholder="Nome">
-
-                <input type="text" id="cargo" placeholder="Cargo">
-            </div>
+            <input type="text" id="nome" placeholder="Nome">
+            <input type="text" id="cargo" placeholder="Cargo">
             <input type="text" id="departamento" placeholder="Departamento">
-            <input type="text" id="emailUsuario" placeholder="E-mail corporativo">
-            <strong id="@gf">@grupofarias.com.br</strong><br>
+
+            <div style="display: flex; align-items: center; gap: 5px;">
+                <input type="text" id="emailUsuario" placeholder="E-mail corporativo" style="margin-bottom: 15px;">
+                <strong style="font-size: 15px; margin-bottom: 10px;">@grupofarias.com.br</strong>
+            </div>
 
             <select id="unidade">
                 <option value="">Selecione a sua unidade</option>
@@ -47,84 +37,81 @@
                 <option value="UTP">UTP</option>
                 <option value="USJ">USJ</option>
                 <option value="UAV">UAV</option>
-            </select><br>
-            <input type="text" id="ramal" placeholder="Ramal (Opcional)"><br><br>
+            </select>
 
-            <input type="checkbox" id="mostrarTelefone" checked>
-            Mostrar telefone da unidade<br>
+            <input type="text" id="ramal" placeholder="Ramal (Opcional)">
 
-            <button type="button" onclick="gerarAssinatura()">
-                Gerar assinatura
-            </button>
+            <label style="display: block; margin-bottom: 15px;">
+                <input type="checkbox" id="mostrarTelefone" checked style="width: auto; margin: 0 5px 0 0;">
+                Mostrar telefone da unidade
+            </label>
+
+            <button type="button" onclick="gerarAssinatura()">Gerar assinatura</button>
         </form>
 
         <p id="assinatura_name">Assinatura gerada:</p>
+        <div id="assinatura"></div>
 
-        <div id="assinatura">
-        </div>
-
-        <button type="button" onclick="copiarAssinatura()">
-            Copiar assinatura
-        </button>
-
+        <button type="button" onclick="copiarAssinatura()">Copiar assinatura</button>
         <p id="mensagem"></p>
+    </div>
 
-        <script>
-            const unidades = {
-                UBF: {
-                    empresa: "Vale Verde Empreendimentos Agrícolas Ltda.",
-                    endereco: "RN-062, km 09 - Baía Formosa/RN - CEP 59194-000",
-                    telefone: "+55 62 3413-7723"
-                },
-                UAN: {
-                    empresa: "Usina Anicuns Açúcar e Álcool S/A",
-                    endereco: "Rodovia GO-156, km 06, s/n – Zona Rural, Anicuns/GO - CEP 76170-000",
-                    telefone: "+55 62 3413-7700"
-                },
-                UIT: {
-                    empresa: "Vale Verde Empreendimentos Agrícolas Ltda.",
-                    endereco: "GO-336, km 16 – Itapaci/GO - CEP 76360-000",
-                    telefone: "+55 62 3413-7749"
-                },
-                UTP: {
-                    empresa: "Vale Verde Empreendimentos Agrícolas Ltda.",
-                    endereco: "GO-156, km 55 – Itapuranga/GO - CEP 76680-000",
-                    telefone: "+55 62 3413-7773"
-                },
-                USJ: {
-                    empresa: "Vale Verde Empreendimentos Agrícolas Ltda.",
-                    endereco: "Rod. Júlio Antônio Basso – Rio das Pedras/SP - CEP 13390-000",
-                    telefone: "+55 62 3413-7785"
-                },
-                UAV: {
-                    empresa: "Usina Álcool Verde",
-                    endereco: "Rodovia BR-317, km 59 – Capixaba/AC - CEP 69922-000",
-                    telefone: "+55 68 3224-1205"
-                }
-            };
+    <script>
+        const unidades = {
+            UBF: {
+                empresa: "Vale Verde Empreendimentos Agrícolas Ltda.",
+                endereco: "RN-062, km 09 - Baía Formosa/RN - CEP 59194-000",
+                telefone: "+55 62 3413-7723"
+            },
+            UAN: {
+                empresa: "Usina Anicuns Açúcar e Álcool S/A",
+                endereco: "Rodovia GO-156, km 06, s/n – Zona Rural, Anicuns/GO - CEP 76170-000",
+                telefone: "+55 62 3413-7700"
+            },
+            UIT: {
+                empresa: "Vale Verde Empreendimentos Agrícolas Ltda.",
+                endereco: "GO-336, km 16 – Itapaci/GO - CEP 76360-000",
+                telefone: "+55 62 3413-7749"
+            },
+            UTP: {
+                empresa: "Vale Verde Empreendimentos Agrícolas Ltda.",
+                endereco: "GO-156, km 55 – Itapuranga/GO - CEP 76680-000",
+                telefone: "+55 62 3413-7773"
+            },
+            USJ: {
+                empresa: "Vale Verde Empreendimentos Agrícolas Ltda.",
+                endereco: "Rod. Júlio Antônio Basso – Rio das Pedras/SP - CEP 13390-000",
+                telefone: "+55 62 3413-7785"
+            },
+            UAV: {
+                empresa: "Usina Álcool Verde",
+                endereco: "Rodovia BR-317, km 59 – Capixaba/AC - CEP 69922-000",
+                telefone: "+55 68 3224-1205"
+            }
+        };
 
-            function gerarAssinatura() {
-                const nome = document.getElementById("nome").value;
-                const cargo = document.getElementById("cargo").value;
-                const departamento = document.getElementById("departamento").value;
-                const emailUsuario = document.getElementById("emailUsuario").value;
-                const unidade = document.getElementById("unidade").value;
-                const ramal = document.getElementById("ramal").value;
-                const mostrarTelefone = document.getElementById("mostrarTelefone").checked;
+        function gerarAssinatura() {
+            const nome = document.getElementById("nome").value;
+            const cargo = document.getElementById("cargo").value;
+            const departamento = document.getElementById("departamento").value;
+            const emailUsuario = document.getElementById("emailUsuario").value;
+            const unidade = document.getElementById("unidade").value;
+            const ramal = document.getElementById("ramal").value;
+            const mostrarTelefone = document.getElementById("mostrarTelefone").checked;
 
-                if (!emailUsuario || !unidade) {
-                    alert("Preencha o e-mail e selecione a unidade.");
-                    return;
-                }
+            if (!emailUsuario || !unidade) {
+                alert("Preencha o e-mail e selecione a unidade.");
+                return;
+            }
 
-                const email = emailUsuario + "@grupofarias.com.br";
-                const dados = unidades[unidade];
+            const email = emailUsuario + "@grupofarias.com.br";
+            const dados = unidades[unidade];
 
-                const telefoneHTML = mostrarTelefone
-                    ? `📞 ${dados.telefone}${ramal ? " | Ramal " + ramal : ""}<br>`
-                    : "";
+            const telefoneHTML = mostrarTelefone
+                ? `📞 ${dados.telefone}${ramal ? " | Ramal " + ramal : ""}<br>`
+                : "";
 
-                document.getElementById("assinatura").innerHTML = `
+            document.getElementById("assinatura").innerHTML = `
   <table cellpadding="0" cellspacing="0" style="font-family:Arial, Helvetica, sans-serif; font-size:12px; color:#000;">
     <tr>
       <td style="padding-right:12px; vertical-align:middle;">
@@ -160,32 +147,29 @@
   </table>
   `;
 
-                document.getElementById("mensagem").innerText = "";
+            document.getElementById("mensagem").innerText = "";
+        }
+
+        function copiarAssinatura() {
+            const assinatura = document.getElementById("assinatura");
+
+            if (!assinatura.innerHTML.trim()) {
+                alert("Gere a assinatura primeiro.");
+                return;
             }
 
-            function copiarAssinatura() {
-                const assinatura = document.getElementById("assinatura");
+            const range = document.createRange();
+            range.selectNode(assinatura);
+            window.getSelection().removeAllRanges();
+            window.getSelection().addRange(range);
 
-                if (!assinatura.innerHTML.trim()) {
-                    alert("Gere a assinatura primeiro.");
-                    return;
-                }
+            document.execCommand("copy");
+            window.getSelection().removeAllRanges();
 
-                const range = document.createRange();
-                range.selectNode(assinatura);
-                window.getSelection().removeAllRanges();
-                window.getSelection().addRange(range);
-
-                document.execCommand("copy");
-                window.getSelection().removeAllRanges();
-
-                document.getElementById("mensagem").innerText =
-                    "Assinatura copiada! Agora é só colar no e-mail.";
-            }
-        </script>
-
-    </div>
-    </div>
+            document.getElementById("mensagem").innerText =
+                "Assinatura copiada! Agora é só colar no e-mail.";
+        }
+    </script>
 </body>
 
 </html>
