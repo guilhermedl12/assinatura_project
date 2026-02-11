@@ -1,9 +1,10 @@
 html {
-  font-family: "Google Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "GRAD" 0;
+    font-family: "Google Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "GRAD" 0;
+
 }
 
 body {
@@ -14,24 +15,29 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    
+
     /* Ajustes no Background */
-    background-image: url(img/harvesting-combine-field.jpg);
+    background-image: url(img/colheiradeira_pdsl.png);
     background-repeat: no-repeat;
-    background-size: cover; /* Mantém a proporção e cobre a tela */
-    background-position: center center; /* Centraliza a imagem */
-    background-attachment: scroll; /* Mais estável para mobile que o fixed */
+    background-size: cover;
+    /* Mantém a proporção e cobre a tela */
+    background-position: center center;
+    /* Centraliza a imagem */
+    background-attachment: scroll;
+    /* Mais estável para mobile que o fixed */
+    backdrop-filter: blur(5px);
 }
 
 #box {
-    color: #222222;
+    color: #1a1a1a;
     width: 100%;
     max-width: 580px;
     background: #ffffff;
     padding: 20px 25px;
-    margin-top: -20px;
+    margin-top: 30px;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
 }
 
 .Line1 {
@@ -41,7 +47,7 @@ body {
     margin-bottom: 20px;
 }
 
-#nome,#cargo{
+#cargo {
     display: flex;
     max-width: 100%;
     width: 100%;
@@ -54,7 +60,7 @@ body {
     min-width: auto;
     height: auto;
     display: flex;
-    margin: 0 auto 10px auto;
+    margin: 15px auto 10px auto;
 }
 
 .nome_marca {
@@ -62,7 +68,7 @@ body {
     font-size: 20px;
     margin-top: 10px;
     margin-bottom: 10px;
-    color: #000000;
+    color: #1a1a1a;
 }
 
 
@@ -71,21 +77,23 @@ h3 {
 }
 
 #unidade {
-      font-family: "Google Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  font-variation-settings: "GRAD" 0;;
+    font-family: "Google Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "GRAD" 0;
+    ;
 }
 
-input, select {
+input,
+select {
     font-family: "Google Sans", sans-serif;
     padding: 7px;
     margin-top: 4px;
     margin-bottom: 15px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 13px;
+    font-size: 15px;
     box-sizing: border-box;
     width: 100%;
 }
@@ -105,19 +113,29 @@ button {
 
 #mostrarTelefone {
     width: 15px;
-    margin-right: 03px;;
+    margin-right: 03px;
+    ;
 }
 
 #emailUsuario {
     width: 45%;
 }
 
-#ramal{
+strong#\@gf{
+    font-size: 15px;
+}
+
+#ramal {
     margin-bottom: -05px;
 }
 
+p#assinatura_name{
+    color: rgb(32, 32, 32);
+    font-weight: 800;
+}
+
 #assinatura {
-    border: 1px solid #ccc;
+    border: 0.5px solid #ececec;
     padding: 14px;
     margin-bottom: 10px;
     background-color: #ffffff;

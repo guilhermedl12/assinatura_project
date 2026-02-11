@@ -29,26 +29,18 @@
             GERADOR DE ASSINATURA DE E-MAIL
         </h3>
 
-        <hr style="margin:15px 0;">
-
-
         <form>
             <div>
-                Nome:<br>
-                <input type="text" id="nome">
+                <input type="text" id="nome" placeholder="Nome">
 
-                Cargo:<br>
-                <input type="text" id="cargo">
+                <input type="text" id="cargo" placeholder="Cargo">
             </div>
-            Departamento:<br>
-            <input type="text" id="departamento">
-            E-mail corporativo:<br>
-            <input type="text" id="emailUsuario">
-            <strong>@grupofarias.com.br</strong><br>
+            <input type="text" id="departamento" placeholder="Departamento">
+            <input type="text" id="emailUsuario" placeholder="E-mail corporativo">
+            <strong id="@gf">@grupofarias.com.br</strong><br>
 
-            Unidade:<br>
             <select id="unidade">
-                <option value="">Selecione a unidade</option>
+                <option value="">Selecione a sua unidade</option>
                 <option value="UBF">UBF</option>
                 <option value="UAN">UAN</option>
                 <option value="UIT">UIT</option>
@@ -56,8 +48,7 @@
                 <option value="USJ">USJ</option>
                 <option value="UAV">UAV</option>
             </select><br>
-            Ramal (opcional):<br>
-            <input type="text" id="ramal"><br><br>
+            <input type="text" id="ramal" placeholder="Ramal (Opcional)"><br><br>
 
             <input type="checkbox" id="mostrarTelefone" checked>
             Mostrar telefone da unidade<br>
@@ -67,9 +58,7 @@
             </button>
         </form>
 
-        <hr>
-
-        <h4>Assinatura gerada:</h4>
+        <p id="assinatura_name">Assinatura gerada:</p>
 
         <div id="assinatura">
         </div>
